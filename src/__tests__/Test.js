@@ -1,24 +1,20 @@
 import React from 'react';
 
-import { mount } from 'enzyme';
+import { render } from 'enzyme';
 import { expect } from 'chai';
 
-import Test from '../Test';
+import ResizeImage from '../ResizeImage';
 
-describe('<Test />', () => {
-  it('should render children when condition is true', () => {
-    const Children = <span>Hello</span>
-    const wrapper = mount(
-      <Test condition={true}>{Children}</Test>
-    );
-    expect(wrapper.contains(Children)).to.equal(true);
-  });
+const src = 'http://test.com/image.jpeg'
+const alt = 'alt'
 
-  it('should not render children when condition is false', () => {
-    const Children = <span>Hai</span>
-    const wrapper = mount(
-      <Test condition={false}>{Children}</Test>
+describe('<ResizeImage />', () => {
+
+  it('should render image with rsz link', () => {
+    const wrapper = render(
+      <ResizeImage src={src} alt={alt} />
     );
-    expect(wrapper.contains(Children)).to.equal(false);
+    console.log(wrapper)
+    // expect(wrapper.src).to.equal('http://rsz.io/test.com/image.jpeg');
   });
 });
