@@ -1,16 +1,16 @@
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
-    define(['exports', 'react', 'prop-types'], factory);
+    define(['exports', 'react', 'prop-types', './getRSZioUrl'], factory);
   } else if (typeof exports !== "undefined") {
-    factory(exports, require('react'), require('prop-types'));
+    factory(exports, require('react'), require('prop-types'), require('./getRSZioUrl'));
   } else {
     var mod = {
       exports: {}
     };
-    factory(mod.exports, global.react, global.propTypes);
+    factory(mod.exports, global.react, global.propTypes, global.getRSZioUrl);
     global.ResizeImage = mod.exports;
   }
-})(this, function (exports, _react, _propTypes) {
+})(this, function (exports, _react, _propTypes, _getRSZioUrl) {
   'use strict';
 
   Object.defineProperty(exports, "__esModule", {
@@ -20,6 +20,8 @@
   var _react2 = _interopRequireDefault(_react);
 
   var _propTypes2 = _interopRequireDefault(_propTypes);
+
+  var _getRSZioUrl2 = _interopRequireDefault(_getRSZioUrl);
 
   function _interopRequireDefault(obj) {
     return obj && obj.__esModule ? obj : {
@@ -36,7 +38,7 @@
 
 
     return _react2.default.createElement('img', {
-      src: resizeActive ? getRSZioUrl(src, options) : src,
+      src: resizeActive ? (0, _getRSZioUrl2.default)(src, options) : src,
       alt: alt,
       style: style
     });

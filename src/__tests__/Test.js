@@ -33,5 +33,4 @@ describe('<ResizeImage />', () => {
     expect(getRSZioUrl(src)).to.equal(expectedSrc);
   });
 
-
 });

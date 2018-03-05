@@ -1,3 +1,3 @@
 var ResizeImage = require('./dist/ResizeImage')
 
-exports.ResizeImage = ResizeImage.default
+module.exports = ResizeImage.default
