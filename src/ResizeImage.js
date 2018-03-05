@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import getRSZioUrl from './getRSZioUrl'
+
 const ResizeImage = (props) => {
   const { src, options, style, alt, resizeActive } = props
 
