@@ -1,6 +1,6 @@
 {
   "name": "react-resize-image",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Resizing image with react and rsz.io",
   "repository": {
     "type": "git",
@@ -32,6 +32,7 @@
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@storybook/react": "^3.2.10",
     "babel-cli": "^6.6.4",
     "babel-core": "^6.7.4",
     "babel-eslint": "^6.0.2",
@@ -51,8 +52,7 @@
     "react": "^15.0.0",
     "react-addons-test-utils": "^15.0.0",
     "react-dom": "^15.0.0",
-    "sinon": "^1.17.3",
-    "@storybook/react": "^3.2.10"
+    "sinon": "^1.17.3"
   },
   "peerDependencies": {
     "react": "~0.14.8 || ^15.0.0",
