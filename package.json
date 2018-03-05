@@ -1,6 +1,6 @@
 {
   "name": "react-resize-image",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Resizing image with react and rsz.io",
   "repository": {
     "type": "git",
