@@ -1,3 +1,3 @@
-var Test = require('./dist/Test')
+var ResizeImage = require('./dist/ResizeImage')
 
-exports.Test = Test.default
+exports.ResizeImage = ResizeImage.default
