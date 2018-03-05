@@ -1,20 +1,37 @@
 import React from 'react';
 
-import { render } from 'enzyme';
+// import { render } from 'enzyme';
 import { expect } from 'chai';
 
-import ResizeImage from '../ResizeImage';
-
-const src = 'http://test.com/image.jpeg'
-const alt = 'alt'
+import getRSZioUrl from '../getRSZioUrl'
 
 describe('<ResizeImage />', () => {
-
-  it('should render image with rsz link', () => {
-    const wrapper = render(
-      <ResizeImage src={src} alt={alt} />
-    );
-    console.log(wrapper)
-    // expect(wrapper.src).to.equal('http://rsz.io/test.com/image.jpeg');
+  
+  it('should add rsz.io before hostname', () => {
+    const src = 'http://test.com/image.jpeg'
+    const expectedSrc = 'http://rsz.io/test.com/image.jpeg'
+    expect(getRSZioUrl(src)).to.equal(expectedSrc);
   });
+
+  it('should add query params', () => {
+    const src = 'http://test.com/image.jpeg'
+    const options = { width: 200 }
+    const expectedSrc = 'http://rsz.io/test.com/image.jpeg?width=200'
+    expect(getRSZioUrl(src, options)).to.equal(expectedSrc);
+  });
+
+  it('should not changing https', () => {
+    const src = 'https://test.com/image.jpeg'
+    const options = { width: 200 }
+    const expectedSrc = 'https://rsz.io/test.com/image.jpeg?width=200'
+    expect(getRSZioUrl(src, options)).to.equal(expectedSrc);
+  });
+
+  it('should not changing src from relative path', () => {
+    const src = '../assets/image.jpeg'
+    const expectedSrc = src
+    expect(getRSZioUrl(src)).to.equal(expectedSrc);
+  });
+
+
 });
